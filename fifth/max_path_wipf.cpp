@@ -62,9 +62,10 @@ int main() {
     while (flag)
     {   weight = getway(way, matrix);
         if (weight==0) {flag = false; break;}
-        for (int i=0; i<size; i++) {
-            for (int j=0; j<size; j++)
-            if (matrix[i][j]<=weight) matrix[i][j]=0;
+        for (int i=0; i<way.size()-1; i++) {
+            int a = way.at(i);
+            int b = way.at(i+1);
+            if (matrix[b][a]==weight) matrix[b][a]=0;
         }
         if (weight>max_weight) max_weight=weight;
     }
